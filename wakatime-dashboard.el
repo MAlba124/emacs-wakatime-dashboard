@@ -24,6 +24,18 @@
 (setq wakatime-dashboard--buffer-name "*Wakatime Dashboard*")
 (setq wakatime-dashboard--values (make-hash-table))
 
+(defface wakatime-dashboard--title-face
+  '((t (:inherit font-lock-type-face :weight bold :height 1.5)))
+  "Title face")
+
+(defface wakatime-dashboard--primary-face
+  '((t (:inherit font-lock-type-face :weight bold :height 1.2)))
+  "Primary face")
+
+(defface wakatime-dashboard--secondary-face
+  '((t (:inherit font-lock-function-name-face :weight bold)))
+  "Secondary face")
+
 (defun wakatime-dashboard--buffer ()
   (let ((buffer (get-buffer wakatime-dashboard--buffer-name)))
     (if buffer
@@ -40,24 +52,6 @@
      (if (> minutes 0)
        (format "%d mins" minutes)
        ""))))
-
-(copy-face 'font-lock-type-face 'wakatime-dashboard--primary-face)
-(copy-face 'font-lock-type-face 'wakatime-dashboard--title-face)
-(copy-face 'font-lock-function-name-face 'wakatime-dashboard--secondary-face)
-
-(set-face-attribute 'wakatime-dashboard--title-face
-                    nil
-                    :weight 'bold
-                    :height 1.5)
-
-(set-face-attribute 'wakatime-dashboard--primary-face
-                    nil
-                    :weight 'bold
-                    :height 1.2)
-
-(set-face-attribute 'wakatime-dashboard--secondary-face
-                    nil
-                    :weight 'bold)
 
 (defun wakatime-dashboard--on-vlues-change ()
   (let ((buffer (wakatime-dashboard--buffer)))
