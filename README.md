@@ -9,7 +9,9 @@ Add the following lines to your emacs configuration:
 ```emacs-lisp
 (setq wakatime-dashboard-api-key "YOUR-WAKATIME-API-KEY")
 (unless (package-installed-p 'wakatime-dashboard)
-  (package-vc-install '(wakatime-dashboard :url "https://github.com/MAlba124/emacs-wakatime-dashboard.git")))
+  (package-vc-install
+  '(wakatime-dashboard
+  :url "https://github.com/MAlba124/emacs-wakatime-dashboard.git")))
 (require 'wakatime-dashboard)
 ```
 
